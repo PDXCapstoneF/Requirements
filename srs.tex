@@ -21,6 +21,7 @@
 \usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{graphicx}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
     pdftitle={Software Requirement Specification},    % title
@@ -99,34 +100,29 @@ is available, refer to it rather than duplicating its contents here.$>$
 \chapter{Overall Description}
 
 \section{Product Perspective}
-$<$Describe the context and origin of the product being specified in this SRS.  
-For example, state whether this product is a follow-on member of a product 
-family, a replacement for certain existing systems, or a new, self-contained 
-product. If the SRS defines a component of a larger system, relate the 
-requirements of the larger system to the functionality of this software and 
-identify interfaces between the two. A simple diagram that shows the major 
-components of the overall system, subsystem interconnections, and external 
-interfaces can be helpful.$>$
+This product is a new way to manage configuration files, run SPECjbb 2015, and organize output results. It is specified for benchmark runs on SPECjbb 2015.
+\begin{figure}[h!]
+	\centering
+	\caption[Diagram]{Interface Architecture Diagram}
+	\includegraphics[width=0.8\linewidth]{diagram.png}
+	\label{fig:diagram}
+\end{figure}
 
 \section{Product Functions}
-$<$Summarize the major functions the product must perform or must let the user 
-perform. Details will be provided in Section 3, so only a high level summary 
-(such as a bullet list) is needed here. Organize the functions to make them 
-understandable to any reader of the SRS. A picture of the major groups of 
-related requirements and how they relate, such as a top level data flow diagram 
-or object class diagram, is often effective.$>$
+In general, the product puts focus on a user-friendly way to use SPECjbb 2015, which includes:
+\begin{itemize}
+	\item Allows queuing multiple SPECjbb jobs to run sequentially with different configuration.
+	\item Allows users to create and save a new configuration set or load/modify/delete existed sets.
+	\item Allows users to input custom configuration information for SPECjbb.
+	\item Provides options/configuration validation.
+	\item Provides visualized and organized interface.
+\end{itemize}
 
 \section{User Classes and Characteristics}
-$<$Identify the various user classes that you anticipate will use this product.  
-User classes may be differentiated based on frequency of use, subset of product 
-functions used, technical expertise, security or privilege levels, educational 
-level, or experience. Describe the pertinent characteristics of each user class.  
-Certain requirements may pertain only to certain user classes. Distinguish the 
-most important user classes for this product from those who are less important 
-to satisfy.$>$
+The product can be found useful to those who are interested in running benchmarks on SPECjbb 2015 in general. More specifically, who are concerned with performance of specific configurations of hardware likely to use SPECjbb more often and the product is necessary. Besides, students and professors from universities or researchers want to consider using SPECjbb in their research is one of important user classes for this product.
 
 \section{Operating Environment}
-The application will always run under a Unix environment.  Users may run the application remotely without access to a graphical user interface.
+The application will always run under a Unix environment. Users may run the application remotely without access to a graphical user interface.
 
 \section{Design and Implementation Constraints}
 $<$Describe any items or issues that will limit the options available to the 
@@ -142,8 +138,8 @@ software).$>$
 $<$List the user documentation components (such as user manuals, on-line help, 
 and tutorials) that will be delivered along with the software. Identify any 
 known user documentation delivery formats or standards.$>$
-\section{Assumptions and Dependencies}
 
+\section{Assumptions and Dependencies}
 $<$List any assumed factors (as opposed to known facts) that could affect the 
 requirements stated in the SRS. These could include third-party or commercial 
 components that you plan to use, issues around the development or operating 
