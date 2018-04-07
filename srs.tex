@@ -152,14 +152,11 @@ example, in the vision and scope document or the project plan).$>$
 \chapter{External Interface Requirements}
 
 \section{User Interfaces}
-
+The product focuses on the Command Line Interface (CLI) since potential users of the product are usually familiar to Unix operating systems. Further in the process, we would have an alternative solution for nicely designed GUI. Through the CLI, users are able to manipulate configuration sets used for benchmark runs on SPECjbb 2015. The manipulation actions include all the functions related to configuration sets mentioned in Section 2.2.
+% We should have some images when we finish with the interface.
 
 \section{Hardware Interfaces}
-$<$Describe the logical and physical characteristics of each interface between 
-the software product and the hardware components of the system. This may include 
-the supported device types, the nature of the data and control interactions 
-between the software and the hardware, and communication protocols to be 
-used.$>$
+The product performs as a helper for users of SPECjbb 2015 in the processes of preparing configuration sets and organizing results afterward. Thus, the product has no hardware interfaces directly but through SPECjbb if there is any.
 
 \section{Software Interfaces}
 $<$Describe the connections between this product and other specific software 
@@ -169,17 +166,16 @@ messages coming into the system and going out and describe the purpose of each.
 Describe the services needed and the nature of communications. Refer to 
 documents that describe detailed application programming interface protocols.  
 Identify data that will be shared across software components. If the data 
-sharing mechanism must be implemented in a specific way (for example, use of a 
-global data area in a multitasking operating system), specify this as an 
+sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an 
 implementation constraint.$>$
+
+The product will require Python 3 installed on your computers with no further required libraries. The configuration sets will be saved in JSON format files. After parsing configuration sets into parameters, the product will use these parameters, the shared data, as components to run SPECjbb 2015. After SPECjbb 2015 finishes each run, the product will perform the cleanup for the result of the run.
 
 \section{Communications Interfaces}
 $<$Describe the requirements associated with any communications functions 
 required by this product, including e-mail, web browser, network server 
 communications protocols, electronic forms, and so on. Define any pertinent 
-message formatting. Identify any communication standards that will be used, such 
-as FTP or HTTP. Specify any communication security or encryption issues, data 
-transfer rates, and synchronization mechanisms.$>$
+message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.$>$
 
 
 \chapter{System Features}
