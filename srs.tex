@@ -108,6 +108,10 @@ identify interfaces between the two. A simple diagram that shows the major
 components of the overall system, subsystem interconnections, and external 
 interfaces can be helpful.$>$
 
+SPECtate (the System) is open source software (OSS) released under the MIT License. It is not a standalone system, it is designed to be interfaced with SPECjbb2015 (the Benchmarking System). It provides a simple mechanism for users of the Benchmarking System to manage various JVM and benchmark configurations. It is not required to use the Benchmarking System. 
+
+
+
 \section{Product Functions}
 $<$Summarize the major functions the product must perform or must let the user 
 perform. Details will be provided in Section 3, so only a high level summary 
@@ -115,6 +119,57 @@ perform. Details will be provided in Section 3, so only a high level summary
 understandable to any reader of the SRS. A picture of the major groups of 
 related requirements and how they relate, such as a top level data flow diagram 
 or object class diagram, is often effective.$>$
+
+% https://www.draw.io/
+% (Diagram of control flow here)
+
+\begin{enumerate}
+	\item
+	Manage JVM and Benchmark System Configurations (Option Sets)
+	
+	These Option Sets are extended from the user-provided JVM and Benchmark System
+	arguments. The System manages numerous Option Sets provided by the user, allowing
+	the user to:
+	
+	\begin{enumerate}
+		\item		
+		Modify Option Sets as a configuration file 
+	
+		\item
+		Load/Select Option Sets (configuration
+
+		\item		
+		Save Option Sets as configurations for a benchmark run
+		
+	\end{enumerate}	
+	
+	\item
+	Execution based on Option Sets
+	
+	
+
+	\item
+	User Interface
+	
+	The GUI and CLI provide same functionality of the System,
+	therefore users will be able to perform the same tasks whether they are using the
+	command-line or the graphical interface.
+	
+	\begin{enumerate}
+		
+		\item
+		(Ad-hoc?) CLI for management of configurations and invoking Benchmark System.
+		
+		
+		\item
+		GUI for interactive management of configurations and invoking Benchmark System.
+	\end{enumerate}		
+	
+	
+\end{enumerate}
+
+
+
 
 \section{User Classes and Characteristics}
 $<$Identify the various user classes that you anticipate will use this product.  
@@ -289,6 +344,10 @@ timing relationships for real time systems. Make such requirements as specific
 as possible. You may need to state performance requirements for individual 
 functional requirements or features.$>$
 
+The System responds quickly in every action-response, both for the CLI and the GUI interfaces.
+There should be no substantially long delays while using the System, other than when the Benchmark System itself is running in the shell. 
+
+
 \section{Safety Requirements}
 $<$Specify those requirements that are concerned with possible loss, damage, or 
 harm that could result from the use of the product. Define any safeguards or 
@@ -297,12 +356,22 @@ any external policies or regulations that state safety issues that affect the
 product’s design or use. Define any safety certifications that must be 
 satisfied.$>$
 
+The use of Benchmarking Software imposes inherent risk for the user. Since a benchmarking
+test can push the limits of the hardware and software running on a device, it may lead to
+varying types of software and/or hardware failure. The user should excercise caution when using
+benchmarking software, especially if used with overclocked hardware, or, hardware with 
+a high-voltage power supply. 
+
+
 \section{Security Requirements}
 $<$Specify any requirements regarding security or privacy issues surrounding use 
 of the product or protection of the data used or created by the product. Define 
 any user identity authentication requirements. Refer to any external policies or 
 regulations containing security issues that affect the product. Define any 
 security or privacy certifications that must be satisfied.$>$
+
+\textbf{Should we remove this section?}
+
 
 \section{Software Quality Attributes}
 $<$Specify any additional quality characteristics for the product that will be 
@@ -313,33 +382,26 @@ and usability. Write these to be specific, quantitative, and verifiable when
 possible. At the least, clarify the relative preferences for various attributes, 
 such as ease of use over ease of learning.$>$
 
+\textbf{Correctness:} The System is designed to meet the specifications 
+described in this document, specifically under External Interface Requirements (Section 3) and System Features (Section 4). The System is correct if these requirements are satisified. 
+
+\textbf{Testability}: 
+The original developers of the System use Continuous Integration (CI) and unit-tests,
+which will help provide quality software for both users of the software and subsequent developers.
+
+\textbf{Usability:}
+Since the System is intended to make configuring the Benchmarking System easier, the usability
+of it is based on the usability of the interfaces and the the added simplification 
+of invoking SPECjbb with the user input.
+
+
 \section{Business Rules}
 $<$List any operating principles about the product, such as which individuals or 
 roles can perform which functions under specific circumstances. These are not 
 functional requirements in themselves, but they may imply certain functional 
 requirements to enforce the rules.$>$
 
-
-\chapter{Other Requirements}
-$<$Define any other requirements not covered elsewhere in the SRS. This might 
-include database requirements, internationalization requirements, legal 
-requirements, reuse objectives for the project, and so on. Add any new sections 
-that are pertinent to the project.$>$
-
-\section{Appendix A: Glossary}
-%see https://en.wikibooks.org/wiki/LaTeX/Glossary
-$<$Define all the terms necessary to properly interpret the SRS, including 
-acronyms and abbreviations. You may wish to build a separate glossary that spans 
-multiple projects or the entire organization, and just include terms specific to 
-a single project in each SRS.$>$
-
-\section{Appendix B: Analysis Models}
-$<$Optionally, include any pertinent analysis models, such as data flow 
-diagrams, class diagrams, state-transition diagrams, or entity-relationship 
-diagrams.$>$
-
-\section{Appendix C: To Be Determined List}
-$<$Collect a numbered list of the TBD (to be determined) references that remain 
-in the SRS so they can be tracked to closure.$>$
+The Benchmarking System does not restrict access based on user roles or permissions, and
+the System is designed similarly.
 
 \end{document}
